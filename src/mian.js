@@ -68,6 +68,8 @@ $(window).on('keypress', function(e) {
     }
 })
 $(function() {
+    console.log(localStorage.getItem('SE'))
+    searchTo(localStorage.getItem('SE'));
     render()
 })
 
@@ -75,19 +77,29 @@ function rgb() {
     return Math.floor(Math.random() * 256);
 }
 
+function searchTo(name) {
+    if (name === 'google') {
+        $('.search-form')[0].action = 'https://www.google.com/search'
+        $('.search-ipt')[0].name = 'q';
+        $('.search-ipt')[0].placeholder = "Google"
+        $('.btn-g').addClass('btn-active').siblings().removeClass('btn-active')
+    } else {
+        $('.search-form')[0].action = "https://www.baidu.com/s"
+        $('.search-ipt')[0].name = 'wd';
+        $('.search-ipt')[0].placeholder = "Baidu"
+        $('.btn-b').addClass('btn-active').siblings().removeClass('btn-active')
+    }
+    $(".search-ipt").focus();
+}
 $('.btn-g').on('click', function() {
-    $('.search-form')[0].action = 'https://www.google.com/search'
-    $('.search-ipt')[0].name = 'q';
-    $('.search-ipt')[0].placeholder = "Google"
-    $(this).addClass('btn-active').siblings().removeClass('btn-active')
+    localStorage.setItem('SE', "google");
+    searchTo.call(null, 'google');
 })
 
 
 $('.btn-b').on('click', function() {
-    $('.search-form')[0].action = "https://www.baidu.com/s"
-    $('.search-ipt')[0].name = 'wd';
-    $('.search-ipt')[0].placeholder = "Baidu"
-    $(this).addClass('btn-active').siblings().removeClass('btn-active')
+    localStorage.setItem('SE', "baidu");
+    searchTo.call(null, 'baidu');
 })
 let flag = true;
 $('.search-ipt').on('focus', function(e) {
