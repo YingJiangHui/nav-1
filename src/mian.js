@@ -61,7 +61,7 @@ $(window).on('keypress', function(e) {
     if (flag) {
         for (let item of map) {
             if (e.key === item["title"].toLocaleLowerCase()) {
-                window.location.href = item['url']
+                window.open(item['url'])
             }
 
         }
