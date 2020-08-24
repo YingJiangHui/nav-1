@@ -181,7 +181,7 @@ $(window).on('keypress', function (e) {
         var item = _step.value;
 
         if (e.key === item["title"].toLocaleLowerCase()) {
-          window.location.href = item['url'];
+          window.open(item['url']);
         }
       }
     } catch (err) {
@@ -241,4 +241,4 @@ $('.search-ipt').on('blur', function () {
   });
 });
 },{}]},{},["ECQE"], null)
-//# sourceMappingURL=mian.dadbd68a.js.map
+//# sourceMappingURL=mian.22a256bd.js.map

@@ -90,7 +90,16 @@ button {
     flex-wrap: wrap;
 }
 
+@media (max-width:960px) {
+    .globalMain {
+        max-width: 715px;
+    }
+}
+
 @media (min-width:500px) {
+    .globalMain>.siteList {
+        min-width: 768px
+    }
     .globalMain>.siteList {
         margin-right: -25px;
     }
@@ -108,11 +117,16 @@ button {
 }
 
 @media (max-width:500px) {
+    .globalHeader button[type=submit] {
+        font-size: 16px;
+        padding: 10px 17px;
+    }
     .siteList {
         justify-content: space-between;
     }
     .globalMain>.siteList {
-        margin: 20px;
+        min-width: 370px;
+        padding: 20px;
     }
 }
 
@@ -225,4 +239,4 @@ button {
     left: 0;
 }
 
-/*# sourceMappingURL=style.d7703ed9.css.map */
+/*# sourceMappingURL=style.9971a455.css.map */
