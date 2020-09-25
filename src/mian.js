@@ -1,9 +1,7 @@
 const dataStr = localStorage.getItem('frontNavSite');
-const dataObj = JSON.parse(dataStr);
-const map = dataObj || [
-    { title: 'I', url: 'https://www.iconfont.cn' },
-    { title: 'G', url: 'https://github.com' },
-]
+const dataObj = JSON.parse(dataStr || '[]');
+let ctrl = false
+const map = dataObj.length > 0 ? dataObj : [{ title: 'G', url: 'https://github.com' }, { title: 'C', url: 'https://cssgradient.io/' }, { title: 'U', url: 'https://caniuse.com/' }, { title: 'S', url: 'https://stackoverflow.com/' }, { title: 'D', url: 'https://devdocs.io/' }]
 
 $('.addButton')
     .on('click', function() {
@@ -46,7 +44,11 @@ function render() {
             `)
             .insertBefore($('.siteList').find('li.last'))
         $li.on('click', function() {
-            window.location.href = item['url'];
+            if (ctrl) {
+                window.open(item['url'], '_blank');
+            } else {
+                window.open(item['url'], '_self');
+            }
         })
         $li.on('click', '.chacha', (e) => {
             e.stopPropagation();
@@ -55,8 +57,8 @@ function render() {
             localStorage.setItem('frontNavSite', JSON.stringify(map))
         })
     })
-
 }
+
 $(window).on('keypress', function(e) {
     if (flag) {
         for (let item of map) {
@@ -67,8 +69,13 @@ $(window).on('keypress', function(e) {
         }
     }
 })
+$(window).on('keydown', function(e) {
+    ctrl = true
+})
+$(window).on('keyup', function(e) {
+    ctrl = false
+})
 $(function() {
-    console.log(localStorage.getItem('SE'))
     searchTo(localStorage.getItem('SE'));
     render()
 })

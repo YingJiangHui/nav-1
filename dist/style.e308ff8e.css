@@ -1,0 +1,242 @@
+/* css reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input,
+button {
+    font-size: 17px;
+    outline: none;
+    border: 1px solid transparent;
+}
+
+.globalHeader {
+    margin: 70px 0 60px 0;
+}
+
+.globalHeader>.form-wrap>form {
+    position: relative;
+    margin: 20px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.globalHeader input {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 18px;
+    transition: 0.2s;
+    height: 48px;
+    padding: 0 16px;
+    width: 100%;
+    margin-right: 10px;
+    border: 1px solid transparent;
+    border-radius: 0 8px 8px 8px;
+    background: #fff;
+    border-color: #ddd;
+}
+
+.globalHeader input:focus {
+    background: #fff;
+    border: 4px solid rgba(35, 174, 229, 0.2);
+}
+
+@media (min-width:500px) {
+    .globalHeader>.form-wrap {
+        margin: auto;
+        margin-bottom: 0;
+        margin-top: 0;
+        max-width: 616px;
+    }
+}
+
+.globalHeader button[type=submit] {
+    font-size: 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-radius: 3px;
+    padding: 10px 28px;
+    background: rgba(35, 174, 229, 1);
+    color: #fff;
+    font-weight: 550;
+}
+
+.globalMain {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.globalMain>.siteList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width:960px) {
+    .globalMain {
+        max-width: 715px;
+    }
+}
+
+@media (min-width:500px) {
+    .globalMain>.siteList {
+        min-width: 768px
+    }
+    .globalMain>.siteList {
+        margin-right: -25px;
+    }
+    .siteList>li {
+        margin-right: 25px;
+    }
+    .siteList .site:hover .chacha {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    .chacha {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+}
+
+@media (max-width:500px) {
+    .globalHeader button[type=submit] {
+        font-size: 16px;
+        padding: 10px 17px;
+    }
+    .siteList {
+        justify-content: space-between;
+    }
+    .globalMain>.siteList {
+        min-width: 370px;
+        padding: 20px;
+    }
+}
+
+.siteList>li {
+    cursor: pointer;
+    transition: .2s;
+    background-color: #f3f3f3;
+    width: 160px;
+    border-radius: 2px;
+    margin-bottom: 25px;
+}
+
+.siteList>li:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.siteList .site {
+    padding: 20px 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.siteList .site>.logo {
+    text-transform: uppercase;
+    line-height: 64px;
+    height: 64px;
+    text-align: center;
+    font-size: 64px;
+    margin-bottom: 5px;
+}
+
+.siteList .site>.link {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.siteList .icon-wrapper {
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.siteList .addButton {
+    text-align: center;
+}
+
+.siteList .icon-wrapper .icon {
+    width: 64px;
+    height: 64px;
+}
+
+.siteList .addButton {
+    padding: 20px 0;
+}
+
+
+/* icon */
+
+.chacha {
+    cursor: default;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    transition: .2s;
+}
+
+.checkout {
+    position: absolute;
+    bottom: 100%;
+    left: 0px;
+    margin-bottom: -1px;
+}
+
+.btn-g,
+.btn-b {
+    transition: 0.2s;
+    background-color: #fff;
+    cursor: pointer;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px 10px 0 0;
+    border: 1px solid #ddd;
+    background-color: #f3f3f3;
+    border-bottom-color: #ddd;
+}
+
+.btn-active {
+    background-color: #fff;
+    border-bottom-color: #fff;
+    position: relative;
+}
+
+.btn-active::after {
+    content: "";
+    background-color: #fff;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    height: 10px;
+    left: 0;
+}
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
